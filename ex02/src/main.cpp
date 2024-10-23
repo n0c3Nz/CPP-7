@@ -2,6 +2,8 @@
 #include <array.hpp>
 
 #define MAX_VAL 750
+#define END "\033[0m"
+#define RED "\033[1;31m"
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -18,7 +20,7 @@ int main(int, char**)
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
+    std::cout << "----- [ 1 ] -----" << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -27,14 +29,17 @@ int main(int, char**)
             return 1;
         }
     }
+    std::cout << "All OK." << std::endl;
+    std::cout << "----- [ 2 ] -----" << std::endl;
     try
     {
         numbers[-2] = 0;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << RED << e.what() << END << '\n';
     }
+    std::cout << "----- [ 3 ] -----" << std::endl;
     try
     {
         numbers[MAX_VAL] = 0;
@@ -43,7 +48,7 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
+    std::cout << "----- [ 4 ] -----" << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
