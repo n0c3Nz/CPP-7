@@ -3,20 +3,18 @@
 
 #include <iostream>
 
-namespace{
-	template<typename T>
-	void iter(T *array, int length, void (*func)(T const &))
+template<typename T>
+void iter(T *array, int length, void (*func)(T const &))
+{
+	for (int i = 0; i < length; i++)
 	{
-		for (int i = 0; i < length; i++)
-		{
-			func(array[i]);
-		}
+		func(array[i]);
 	}
-	template<typename T>
-	void print(T const &c)
-	{
-		std::cout << c << std::endl;
-	}
+}
+template<typename T>
+void print(T const &c)
+{
+	std::cout << c << std::endl;
 }
 
 #endif

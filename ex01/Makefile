@@ -10,7 +10,7 @@ WHITE = \033[1;37m
 #COMPILATION
 NAME = Iter
 CC = c++ -I./inc
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR = .obj
 SRC_DIR = ./src

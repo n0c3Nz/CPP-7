@@ -4,6 +4,7 @@
 #define MAX_VAL 750
 #define END "\033[0m"
 #define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -29,7 +30,7 @@ int main(int, char**)
             return 1;
         }
     }
-    std::cout << "All OK." << std::endl;
+    std::cout << GREEN << "OK." << END << std::endl;
     std::cout << "----- [ 2 ] -----" << std::endl;
     try
     {
@@ -46,7 +47,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << RED << e.what() << END << '\n';
     }
     std::cout << "----- [ 4 ] -----" << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
@@ -54,13 +55,15 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
-
-	std::cout << "Success" << std::endl;
+    std::cout << "----- ----- -----" << std::endl;
+	std::cout << GREEN << "Success" << END << std::endl;
 	std::cout << "Size of Array: " << numbers.size() << std::endl;
+    std::cout << "----- ----- -----" << std::endl;
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << numbers[i] << std::endl;
+		std::cout << RED << "[" << i << "] " << END << numbers[i] << std::endl;
 	}
+    std::cout << "----- ----- -----" << std::endl;
 	
     return 0;
 }
